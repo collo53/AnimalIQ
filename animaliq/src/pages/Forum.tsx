@@ -243,10 +243,10 @@ const handleDelete = async (id) => {
 const isAdmin = currentUser?.is_staff;
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      <div className="w-80 bg-white border-r border-gray-200 flex flex-col">
+<div className="flex flex-col sm:flex-row h-screen bg-gray-100">
+    <div className="w-full sm:w-80 bg-white border-r border-gray-200 flex flex-col">
         <div className="p-4 border-b border-gray-200">
-          <div className="flex items-center justify-between mb-4">
+<div className="flex flex-wrap items-center justify-between space-y-2 sm:space-y-0">
             <h1 className="text-xl font-bold text-gray-800">Wildlife Chat</h1>
             <div className="flex items-center space-x-2">
              
@@ -296,7 +296,7 @@ const isAdmin = currentUser?.is_staff;
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+<div className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[calc(100vh-14rem)] sm:max-h-full">
           {messages.map((msg) => (
             <div key={msg.id} className="flex space-x-3">
               <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -360,7 +360,7 @@ const isAdmin = currentUser?.is_staff;
 
         {/* Message Input */}
         <div className="bg-white border-t border-gray-200 p-4">
-          <div className="flex items-center space-x-3">
+<div className="flex flex-wrap sm:flex-nowrap items-center space-y-2 sm:space-y-0 sm:space-x-3">
             <input
               type="file"
               ref={fileInputRef}

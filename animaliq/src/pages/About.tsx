@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Heart, Globe, Users, Target, Award, TreePine, Fish, Bird, Leaf, Book, BookOpen, Bus } from 'lucide-react';
+import { Shield, Heart, Globe, Users, Target, Award, TreePine, Fish, Bird, Leaf, Book, BookOpen, Bus,X,Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -14,28 +14,17 @@ const About = () => {
       location: 'Nairobi, Kenya',
       bio: 'Wildlife student passionate about wildlife conservation and youth empowerment.'
     },
-    {
-      name: 'Marcus Rodriguez',
-      role: 'Conservation Coordinator',
-      age: 18,
-      location: 'São Paulo, Brazil',
-      bio: 'Rainforest advocate working on habitat preservation in the Amazon region.'
-    },
-    {
-      name: 'Zara Okafor',
-      role: 'Community Manager',
-      age: 20,
-      location: 'Lagos, Nigeria',
-      bio: 'Environmental science major focusing on African wildlife conservation initiatives.'
-    },
-    {
-      name: 'Kai Nakamura',
-      role: 'Tech Lead',
-      age: 17,
-      location: 'Tokyo, Japan',
-      bio: 'Computer science prodigy using technology to solve conservation challenges.'
-    }
+   
   ];
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  const toggleMobileMenu = () => {
+      setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+  
+      const closeMobileMenu = () => {
+      setIsMobileMenuOpen(false);
+    };
 
   const achievements = [
     {
@@ -89,36 +78,80 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50">
-       <nav className="bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-50">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center py-4">
-                  <div className="flex items-center space-x-2">
+     <nav className="bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <div className="flex items-center space-x-2">
+              <div className="h-12 w-12 sm:h-16 sm:w-16 lg:h-20 lg:w-20 bg-green-600 rounded-full flex items-center justify-center">
             <img src="/wan.jpg" alt="AnimalIQ Logo" className="h-20 w-20 object-contain rounded-full" />
-                    <span className="text-2xl font-bold text-gray-800">AnimalIQ</span>
-                  </div>
-                  <div className="hidden md:flex space-x-6">
-                    <a href="/" className="text-gray-700 hover:text-green-600 transition-colors">Adventures</a>
-                    <Link to="/animals" className="text-gray-700 hover:text-green-600 transition-colors">Animals</Link>
-                    <Link to="/login" className="text-gray-700 hover:text-green-600 transition-colors">Forum</Link>
-                    <Link to="/about" className="text-gray-700 hover:text-green-600 transition-colors">About</Link>
-                    <Link to="/gallery" className="text-gray-700 hover:text-green-600 transition-colors">Gallery</Link>
-                  
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <Link to="/login">
-                      <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
-                        Login
-                      </Button>
-                    </Link>
-                    < Link to="/register">
-                          <Button className="bg-green-600 hover:bg-green-700">
-                               Register
-                             </Button>
-                         </Link>
-                  </div>
-                </div>
               </div>
-            </nav>
+              <span className="text-xl sm:text-2xl font-bold text-gray-800">AnimalIQ</span>
+            </div>
+
+            <div className="hidden lg:flex space-x-6">
+               <a href="/" className="text-gray-700 hover:text-green-600 transition-colors">Adventures</a>
+                 <Link to="/animals" className="text-gray-700 hover:text-green-600 transition-colors">Animals</Link>
+                <Link to="/login" className="text-gray-700 hover:text-green-600 transition-colors">Forum</Link>
+                <Link to="/about" className="text-gray-700 hover:text-green-600 transition-colors">About</Link>
+               <Link to="/gallery" className="text-gray-700 hover:text-green-600 transition-colors">Gallery</Link>
+            </div>
+
+            <div className="hidden lg:flex items-center space-x-4">
+            <Link to="/login">
+                <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
+                  Login
+                </Button>
+              </Link>
+             < Link to="/register">
+              <Button className="bg-green-600 hover:bg-green-700">
+                Register
+              </Button>
+              </Link>
+            </div>
+
+            <div className="lg:hidden">
+              <button
+                onClick={toggleMobileMenu}
+                className="text-gray-700 hover:text-green-600 transition-colors p-2 rounded-md hover:bg-gray-100"
+                aria-label="Toggle mobile menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </button>
+            </div>
+          </div>
+
+          {isMobileMenuOpen && (
+            <div className="lg:hidden border-t border-gray-200 py-4 bg-white/95 backdrop-blur-sm">
+              <div className="flex flex-col space-y-2">
+                {/* Mobile Navigation Links */}
+                  <a href="/" className="text-gray-700 hover:text-green-600 transition-colors">Adventures</a>
+                 <Link to="/animals" className="text-gray-700 hover:text-green-600 transition-colors">Animals</Link>
+                <Link to="/login" className="text-gray-700 hover:text-green-600 transition-colors">Forum</Link>
+                <Link to="/about" className="text-gray-700 hover:text-green-600 transition-colors">About</Link>
+               <Link to="/gallery" className="text-gray-700 hover:text-green-600 transition-colors">Gallery</Link>
+                
+                {/* Mobile Auth Buttons */}
+                <div className="flex items-center space-x-4">
+              <Link to="/login">
+                <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
+                  Login
+                </Button>
+              </Link>
+             < Link to="/register">
+              <Button className="bg-green-600 hover:bg-green-700">
+                Register
+              </Button>
+              </Link>
+            </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
 
       {/* Hero Section */}
       <section className="py-20 px-4">
