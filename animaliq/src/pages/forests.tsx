@@ -89,7 +89,7 @@ const Forests = () => {
                 <Card key={animal.id} className="overflow-hidden hover:shadow-forest transition-all duration-300 hover:-translate-y-2">
                   <div className="relative h-64 overflow-hidden">
                     <img 
-                     src={`https://animals-production-13e6.up.railway.app/${animal.image}`}
+                     src={`https://animals-production-13e6.up.railway.app${animal.image}`}
                       alt={animal.name}
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
 
