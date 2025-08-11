@@ -143,8 +143,8 @@ const Admin = () => {
   data.append("size", formData.size || "");
   data.append("diet", formData.diet || "");
   data.append("lifespan", formData.lifespan || "");
-  data.append("facts", JSON.stringify(formData.facts)); // ✅ Send JSON string
-  data.append("conservation_status", formData.conservationStatus || "Least Concern"); // ✅ snake_case
+  data.append("facts", JSON.stringify(formData.facts)); 
+  data.append("conservation_status", formData.conservationStatus || "Least Concern"); 
   data.append("category", formData.category || "General");
   if (formData.image) {
     data.append("image", formData.image);
@@ -157,7 +157,9 @@ const Admin = () => {
       },
     });
     console.log("Animal added successfully:", response.data);
+    toast({ title: "Animal added successfully!" });
   } catch (error) {
+    toast({ title: "Failed to add animal", description: error.response?.data?.detail || "Please try again later.", variant: "destructive" });
     console.error("Error Response:", error.response.data);
     console.error("Error: Failed to add animal");
     console.log("Facts sending as:", JSON.stringify(formData.facts));
@@ -191,7 +193,6 @@ const Admin = () => {
         </div>
       </section>
 
-      {/* Tabs */}
       <section className="px-6 pt-10">
         <div className="max-w-4xl mx-auto flex gap-4">
           {[
@@ -215,7 +216,6 @@ const Admin = () => {
         </div>
       </section>
 
-      {/* Tab Content */}
       <section className="py-12 px-6">
         <div className="max-w-4xl mx-auto space-y-8">
           {activeTab === "animals" && (
@@ -230,7 +230,6 @@ const Admin = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                {/* Form Fields (same as before) */}
                 <div>
                   <label className="block text-sm font-medium mb-2">Category</label>
                   <Select

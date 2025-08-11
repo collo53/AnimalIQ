@@ -85,7 +85,7 @@ const About = () => {
               <div className="h-12 w-12 sm:h-16 sm:w-16 lg:h-20 lg:w-20 bg-green-600 rounded-full flex items-center justify-center">
             <img src="/wan.jpg" alt="AnimalIQ Logo" className="h-20 w-20 object-contain rounded-full" />
               </div>
-              <span className="text-xl sm:text-2xl font-bold text-gray-800">AnimalIQ</span>
+              <span className="text-xl sm:text-2xl font-bold text-gray-800">Animal IQ</span>
             </div>
 
             <div className="hidden lg:flex space-x-6">
@@ -127,14 +127,12 @@ const About = () => {
           {isMobileMenuOpen && (
             <div className="lg:hidden border-t border-gray-200 py-4 bg-white/95 backdrop-blur-sm">
               <div className="flex flex-col space-y-2">
-                {/* Mobile Navigation Links */}
                   <a href="/" className="text-gray-700 hover:text-green-600 transition-colors">Adventures</a>
                  <Link to="/animals" className="text-gray-700 hover:text-green-600 transition-colors">Animals</Link>
                 <Link to="/login" className="text-gray-700 hover:text-green-600 transition-colors">Forum</Link>
                 <Link to="/about" className="text-gray-700 hover:text-green-600 transition-colors">About</Link>
                <Link to="/gallery" className="text-gray-700 hover:text-green-600 transition-colors">Gallery</Link>
                 
-                {/* Mobile Auth Buttons */}
                 <div className="flex items-center space-x-4">
               <Link to="/login">
                 <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
@@ -156,7 +154,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold text-gray-800 mb-6">About AnimalIQ</h1>
+          <h1 className="text-5xl font-bold text-gray-800 mb-6">About Animal IQ</h1>
           <p className="text-xl text-gray-600 mb-8">
             We are a global movement of passionate young people united by one mission: 
             to protect and preserve our planet's incredible wildlife for future generations.
@@ -284,7 +282,7 @@ const About = () => {
                 <div>
                   <div className="flex items-center space-x-2 mb-4">
             <img src="/wan.jpg" alt="AnimalIQ Logo" className="h-20 w-20 object-contain rounded-full" />
-                    <span className="text-2xl font-bold">AnimalIQ</span>
+                    <span className="text-2xl font-bold">Animal IQ</span>
                   </div>
                   <p className="text-gray-400">
                     Protecting wildlife through youth action and community engagement.
@@ -314,7 +312,7 @@ const About = () => {
                 </div>
               </div>
               <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-                <p>&copy; 2024 AnimalIQ. All rights reserved. Made with ❤️ for wildlife conservation.</p>
+                <p>&copy; 2024 Animal IQ. All rights reserved. Made with ❤️ for wildlife conservation.</p>
               </div>
             </footer>
     </div>

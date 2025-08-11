@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useToast } from "@/hooks/use-toast";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const { toast } = useToast();
 
  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,13 +38,15 @@ const Login = () => {
         email: data.email,
         is_staff: data.is_staff,
       }));
+        toast({ title: "Login successfully!" });
+      
       window.location.href = "/forum";  
     }  else {
-        alert(data.error || 'Login failed');
+      toast({ title: "login failed", description: data?.detail || JSON.stringify(data), variant: "destructive" });
       }
     } catch (error) {
       console.error('Login error:', error);
-      alert('Something went wrong');
+      toast({ title: "Something went wrong!", description: "Please try again later.", variant: "destructive" });
     }
   };
 
@@ -57,7 +61,7 @@ const Login = () => {
           <CardTitle className="text-2xl font-bold text-gray-800">
             Welcome Back
           </CardTitle>
-          <p className="text-gray-600">Sign in to your AnimalIQ account</p>
+          <p className="text-gray-600">Sign in to your Animal IQ account</p>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">

@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useNavigate } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
+
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +20,8 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate(); 
+  const { toast } = useToast();
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -30,7 +34,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
   if (formData.password !== formData.confirmPassword) {
-    alert('Passwords do not match!');
+      toast({ title: "Passwords do not match!", variant: "destructive" });
     return;
   }
 
@@ -50,15 +54,15 @@ const handleSubmit = async (e: React.FormEvent) => {
 
     const data = await response.json();
     if (response.ok) {
-      alert('Registration successful!');
+      toast({ title: "Registration successfull!" });
       navigate('/login'); 
      
     } else {
-      alert(JSON.stringify(data));
+      toast({ title: "Registration failed", description: data?.detail || JSON.stringify(data), variant: "destructive" });
     }
   } catch (error) {
     console.error('Registration error:', error);
-    alert('Something went wrong.');
+      toast({ title: "Something went wrong!", description: "Please try again later.", variant: "destructive" });
   }
 };
 
@@ -71,7 +75,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             <img src="/wan.jpg" alt="AnimalIQ Logo" className="h-20 w-20 object-contain rounded-full" />
           </div>
           <CardTitle className="text-2xl font-bold text-gray-800">
-            Join AnimalIQ
+            Join Animal IQ
           </CardTitle>
           <p className="text-gray-600">Create your account to start protecting wildlife</p>
         </CardHeader>
@@ -85,7 +89,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   id="name"
                   name="name"
                   type="text"
-                  placeholder="Enter your full name"
+                  placeholder="Enter Single Name"
                   value={formData.name}
                   onChange={handleChange}
                   className="pl-10"

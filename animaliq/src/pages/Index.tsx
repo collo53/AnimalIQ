@@ -89,7 +89,7 @@ const Index = () => {
               <div className="h-12 w-12 sm:h-16 sm:w-16 lg:h-20 lg:w-20 bg-green-600 rounded-full flex items-center justify-center">
             <img src="/wan.jpg" alt="AnimalIQ Logo" className="h-20 w-20 object-contain rounded-full" />
               </div>
-              <span className="text-xl sm:text-2xl font-bold text-gray-800">AnimalIQ</span>
+              <span className="text-xl sm:text-2xl font-bold text-gray-800">Animal IQ</span>
             </div>
 
             <div className="hidden lg:flex space-x-6">
@@ -286,7 +286,7 @@ const Index = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
             <img src="/wan.jpg" alt="AnimalIQ Logo" className="h-20 w-20 object-contain rounded-full" />
-              <span className="text-2xl font-bold">AnimalIQ</span>
+              <span className="text-2xl font-bold">Animal IQ</span>
             </div>
             <p className="text-gray-400">
               Protecting wildlife through youth action and community engagement.

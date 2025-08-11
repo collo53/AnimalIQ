@@ -14,6 +14,7 @@ import {
   LogOut,
   Trash
 } from 'lucide-react';
+import { toast } from 'sonner';
 const Forum = () => {
   const [currentUser, setCurrentUser] = useState({
     id: '',
@@ -206,7 +207,6 @@ const handleAddComment = async () => {
     setComments((prev) => [res.data, ...prev]);
     setNewComment('');
 
-    // Increment replies count in messages
     setMessages((prevMessages) =>
       prevMessages.map((msg) =>
         msg.id === activeMessageId
@@ -281,7 +281,6 @@ const isAdmin = currentUser?.is_staff;
         </div>
       </div>
 
-      {/* Chat Area */}
       <div className="flex-1 flex flex-col">
         <div className="bg-white border-b border-gray-200 p-4">
           <div className="flex items-center justify-between">
@@ -295,7 +294,6 @@ const isAdmin = currentUser?.is_staff;
           </div>
         </div>
 
-        {/* Messages */}
 <div className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[calc(100vh-14rem)] sm:max-h-full">
           {messages.map((msg) => (
             <div key={msg.id} className="flex space-x-3">
